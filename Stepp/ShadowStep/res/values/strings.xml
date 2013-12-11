@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Shadow Step</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_testmapfunction">TESTMAPFUNCTION</string>
+    <string name="timer_zero">00:00:00</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="pause">Pause</string>
+    <string name="button_continue">Continue</string>
+    <string name="trip_frag_title">ShadowStepp Trips</string>
+    <string name="trip_frag_spinner_heading">Please Select A Previous Trip</string>
+    <string name="trip_frag_label_new_trip">Or Create a New Trip</string>
+    <string name="trip_frag_loadtrip">Load Trip</string>
+    <string name="trip_frag_newtrip">Create New Trip</string>
+
+</resources>

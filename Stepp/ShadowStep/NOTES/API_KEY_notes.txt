@@ -1,0 +1,274 @@
+Android Key
+Use this for accessing data not associated with an account from Android
+API KEY
+AIzaSyAA9jvtp3tJd7uOamSyBMOI-njY799VgkQ
+AIzaSyAA9jvtp3tJd7uOamSyBMOI-njY799VgkQ
+
+ANDROID APPS
+49:A4:24:6C:06:DB:91:4D:22:7E:89:AA:25:86:EA:2C:F1:2D:E2:F0;com.sfx.shadowstep
++-
+ACTIVATED ON		Nov 13, 2013 9:13 PM
+ACTIVATED BY		dscheide@gmail.com - you
+
+//////////////////////////////////////////////////
+
+OAuth 2.0 Client ID
+Access user data via a consent screen
+Download JSON
+CLIENT ID
+230985907852.apps.googleusercontent.com
+CLIENT SECRET
+yifTXOYTdEDgZLBpYIzyR8Ya
+PACKAGE NAME
+com.sfx.shadowstep
+CERTIFICATE FINGERPRINT (SHA1)
+49:a4:24:6c:06:db:91:4d:22:7e:89:aa:25:86:ea:2c:f1:2d:e2:f0
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[[{{ ADD TO MANIFEST FILE}}]]>>>>>>>>>>>>>>>>>
+(ADD AS CHILDREN OF THE MANIFEST ELEMENT)
+
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+<!-- The following two permissions are not required to use
+     Google Maps Android API v2, but are recommended. -->
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+<!--ALSO AS MANIFEST CHILD, SPECIFIES GRAPHICS GL VERSION--!>
+<uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
+(((((ADD AS CHILD OF <APPLICATION>
+
+<meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+			
+((((((ADD AS CHILD OF <APPLICATION> JUST BEFORE CLOSING TAG </>
+
+<meta-data
+    android:name="com.google.android.maps.v2.API_KEY"
+    android:value="API_KEY"/>  <!-- "API_KEY" IS ACTUAL KEY FROM GOOGLE CLOUD --!>
+	
+	
+	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<,TEST CODE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+	
+	<?xml version="1.0" encoding="utf-8"?>
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+          android:id="@+id/map"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:name="com.google.android.gms.maps.MapFragment"/>
+
+		  
+		  
+--------------------------------------
+cut from manifest <uses_sdk ...>, may need it:android:name="com.google.android.gms.maps.SupportMapFragment "
+
+
+package com.example.mapdemo;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}
+
+
+
+//////////////////final notes:
+good to handle the following in the onresume method to avoid apk conflicts:
+
+Query for the status of Google Play services on the device with the isGooglePlayServicesAvailable() method, which returns a result code.
+If the result code is SUCCESS, then the Google Play services APK is up-to-date, and you can proceed as normal.
+If the result code is SERVICE_MISSING, SERVICE_VERSION_UPDATE_REQUIRED, or SERVICE_DISABLED, then call getErrorDialog() to display an error message to the user, which allows the user to download the APK from the Google Play Store or enable it in the device's system settings.
+
+]]]]]]]]]]]]]]]]]]]]]]]]]]
+ <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".ShadowStepp" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world" />
+
+</RelativeLayout> 
+
+////////////tutorial page
+
+Getting Started
+
+Developers › Google Maps API › Android › Get Started Documentation Reference Showcase Support Blog GDG Live
+Before you can begin working with the API, you will need to download the API and ensure that you have a Google Maps Android API v2 key. Both the API and the key are freely available.
+
+Overview
+Install the Android SDK
+Install and configure the Google Play services SDK
+Add the Google Play services version to your app's manifest
+Get an Android certificate and the Google Maps API key
+Display your app's certificate information
+Create an API project in the Google APIs Console
+Obtain a Google Maps API key
+Add the API key to your application
+Specify app settings in the application manifest
+Specify permissions
+Specify requirement for OpenGL ES version 2
+Add a map
+Overview
+
+Creating a new Android application that uses the Google Maps Android API v2 requires several steps. Many of the steps outlined in this section will only have to be performed once, but some of the information will be a handy reference for future applications. The overall process of adding a map to an Android application is as follows:
+
+Install the Android SDK.
+Download and configure the Google Play services SDK, which includes the Google Maps Android API. If you use the Google Maps Mobile SDK for Business you must download and configure the Google Maps Mobile SDK for Business static library.
+Obtain an API key. To do this, you will need to register a project in the Google APIs Console, and get a signing certificate for your app.
+Add the required settings in your application's manifest.
+Add a map to your application.
+Publish your application.
+You may wish to begin by looking at some sample code, which is included with the Google Play services SDK.
+
+Install the Android SDK
+
+As a prerequisite, you need to install the Android SDK. See Get the Android SDK.
+
+Install and configure the Google Play services SDK
+
+You will need an Android project for your app, to complete the steps in this section. If you haven't yet created an Android application, you can follow the guide to creating a 'hello world' app. See Creating an Android Project.
+
+The Google Maps Android API v2 is distributed as part of the Google Play services SDK. You can download the Google Play services SDK via the Android SDK Manager.
+
+For detailed instructions, see the Google Play services documentation. Here is a summary of the steps you will need to take:
+
+Install the Google Play services SDK.
+Add Google Play services as an Android library project.
+Reference the Google Play services in your app's project.
+Add the Google Play services version to your app's manifest
+
+Edit your application's AndroidManifest.xml file, and add the following declaration within the <application> element. This embeds the version of Google Play services that the app was compiled with.
+
+<meta-data
+    android:name="com.google.android.gms.version"
+    android:value="@integer/google_play_services_version" />
+Get an Android certificate and the Google Maps API key
+
+Note: The Google Maps Android API v2 uses a new system of managing keys. Existing keys from a Google Maps Android v1 application, commonly known as MapView, will not work with the v2 API.
+
+To access the Google Maps servers with the Maps API, you have to add a Maps API key to your application. The key is free, you can use it with any of your applications that call the Maps API, and it supports an unlimited number of users. You obtain a Maps API key from the Google APIs Console by providing your application's signing certificate and its package name. Add the key to your application by adding an element to your application's AndroidManifest.xml file.
+
+Understanding the process of registering your application and obtaining a key requires some knowledge of Android's publishing process and requirements. In summary, all Android applications must be signed with a digital certificate for which you hold the private key. Because digital certificates are unique, they provide a simple way of uniquely identifying your app. This makes them useful for tracking your application in systems such as Google Play Store, and for tracking your application's use of resources such as the Google Maps servers.
+
+Note: Refer to the Android guide to Signing Your Applications for more information regarding digital certificates.
+
+Maps API keys are linked to specific certificate/package pairs, rather than to users or applications. You only need one key for each certificate, no matter how many users you have for an application. Applications that use the same certificate can use the same API key. However, the recommended practice is to sign each of your applications with a different certificate and get a different key for each one.
+
+Obtaining a key for your application requires several steps. These steps are outlined here, and described in detail in the following sections.
+
+Retrieve information about your application's certificate.
+Register a project in the Google APIs Console and add the Maps API as a service for the project.
+Request one or more keys.
+Add your key to your application and begin development.
+Note: Users of the Google Maps Mobile SDK for Business must additionally enable the SDK for their API project.
+Display your app's certificate information
+
+The Maps API key is based on a short form of your application's digital certificate, known as its SHA-1 fingerprint. The fingerprint is a unique text string generated from the commonly-used SHA-1 hashing algorithm. Because the fingerprint is itself unique, Google Maps uses it as a way to identify your application.
+
+To display the SHA-1 fingerprint for your certificate, first ensure that you are using the right certificate. You may have two certificates:
+
+Debug certificate: The Android SDK tools generate this certificate automatically when you do a "debug" build from the command line, or when you build and run a project from Eclipse without exporting it as a released application. Only use this certificate with apps that you're testing; do not attempt to publish an app that's signed with a debug certificate. The debug certificate is described in more detail in the section Signing in Debug Mode in the Android Developer Documentation.
+Release certificate: The Android SDK tools generate this certificate when you do a "release" build with either ant program or Eclipse. You can also generate this certificate using the keytool program. Use this certificate when you are ready to release your app to the world.
+You can display a certificate's SHA-1 fingerprint using the keytool program with the -v parameter. For more information about Keytool, see the documentation at http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html.
+
+Expand the sections below for detailed instructions on how to display your debug or release certificates.
+
+▸
+Displaying the debug certificate fingerprint
+
+▸
+Displaying the release certificate fingerprint
+
+Create an API project in the Google APIs Console
+
+Follow these steps to create or modify a project for your application in the Google APIs Console and register for the Maps API.
+
+In a browser, navigate to the Google APIs Console.
+If you haven't used the Google APIs Console before, you're prompted to create a project that you use to track your usage of the Google Maps Android API. Click Create Project; the Console creates a new project called API Project. On the next page, this name appears in the upper left hand corner. To rename or otherwise manage the project, click on its name.
+If you're already using the Google APIs Console, you will immediately see a list of your existing projects and the available services. It's still a good idea to use a new project for Google Maps Android API, so select the project name in the upper left hand corner and then click Create.
+You should see a list of APIs and services in the main window. If you don't, select Services from the left navigation bar.
+In the list of services displayed in the center of the page, scroll down until you see Google Maps Android API v2. To the right of the entry, click the switch indicator so that it is on.
+This displays the Google Maps Android API Terms of Service. If you agree to the terms of service, click the checkbox below the terms of service, then click Accept. This returns you to the list of APIs and services.
+Obtain a Google Maps API key
+
+If your application is registered with the Google Maps Android API v2 service, then you can request an API key. It's possible to register more than one key per project.
+
+Navigate to your project in the Google APIs Console.
+In the left navigation bar, click API Access.
+In the resulting page, click Create New Android Key....
+In the resulting dialog, enter the SHA-1 fingerprint, then a semicolon, then your application's package name. For example:
+
+BB:0D:AC:74:D3:21:E1:43:67:71:9B:62:91:AF:A1:66:6E:44:5D:75;com.example.android.mapexample
+The Google APIs Console responds by displaying Key for Android apps (with certificates) followed by a forty-character API key, for example:
+
+AIzaSyBdVl-cTICSwYKrZ95SuvNw7dbMuDt1KG0
+Add the API key to your application
+
+Follow the steps below to include the API key in your application's manifest, contained in the file AndroidManifest.xml. From there, the Maps API reads the key value and passes it to the Google Maps server, which then confirms that you have access to Google Maps data.
+
+In AndroidManifest.xml, add the following element as a child of the <application> element, by inserting it just before the closing tag </application>:
+
+<meta-data
+    android:name="com.google.android.maps.v2.API_KEY"
+    android:value="API_KEY"/>
+Substitute your API key for API_KEY. This element sets the key com.google.android.maps.v2.API_KEY to the value API_KEY and makes the API key visible to any MapFragment in your application.
+
+Save AndroidManifest.xml and re-build your application.
+
+Specify app settings in the application manifest
+
+An Android application that uses the Google Maps Android API should specify the following settings in its manifest file, AndroidManifest.xml:
+
+A reference to the Google Play services version. If you have followed the steps on this page up to this point, you have already added the required declaration to your application manifest.
+The Maps API key for the application. The key confirms that you've registered with the Google Maps service via the Google APIs Console. If you have followed the steps on this page up to this point, you have already added the API key to your application manifest.
+Permissions that give the application access to Android system features and to the Google Maps servers. See below for instructions on adding this setting.
+(Recommended) Notification that the application requires OpenGL ES version 2. External services can detect this notification and act accordingly. For example, Google Play Store won't display the application on devices that don't have OpenGL ES version 2. See below for instructions on adding this setting.
+Specify permissions
+
+Specify the permissions your application needs, by adding <uses-permission> elements as children of the <manifest> element. The syntax is:
+
+<uses-permission android:name="permission_name"/>
+For example, to request the Internet permission, add:
+
+<uses-permission android:name="android.permission.INTERNET"/>
+Besides permissions required by other parts of your application, you must add the following permissions in order to use the Google Maps Android API:
+
+android.permission.INTERNET Used by the API to download map tiles from Google Maps servers.
+android.permission.ACCESS_NETWORK_STATE Allows the API to check the connection status in order to determine whether data can be downloaded.
+com.google.android.providers.gsf.permission.READ_GSERVICES Allows the API to access Google web-based services.
+android.permission.WRITE_EXTERNAL_STORAGE Allows the API to cache map tile data in the device's external storage area.
+The following permissions are recommended, but can be ignored if your application does not access the user's current location, either programmatically, or by enabling the My Location layer.
+
+android.permission.ACCESS_COARSE_LOCATION Allows the API to use WiFi or mobile cell data (or both) to determine the device's location.
+android.permission.ACCESS_FINE_LOCATION Allows the API to use the Global Positioning System (GPS) to determine the device's location to within a very small area.
+
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+<!-- The following two permissions are not required to use
+     Google Maps Android API v2, but are recommended. -->
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+Specify requirement for OpenGL ES version 2
