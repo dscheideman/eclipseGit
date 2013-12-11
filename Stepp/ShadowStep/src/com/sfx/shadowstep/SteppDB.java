@@ -3,6 +3,8 @@
  */
 package com.sfx.shadowstep;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
@@ -10,6 +12,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 //import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 
 import static com.sfx.shadowstep.SteppConstants.*;
@@ -262,6 +265,19 @@ public String dialogGetString(String title, String question, String hintText) {
 public double dialogGetDouble(String title, String question, String hintText) {
 	// TODO Auto-generated method stub
 	return 0;
+}
+
+
+@Override
+public void switchFrags(Fragment f) {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public ArrayList<Fragment> getFragmentArray() {
+	// TODO Auto-generated method stub
+	return null;
 }
 
 

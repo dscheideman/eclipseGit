@@ -3,6 +3,8 @@ package com.sfx.shadowstep;
 
 
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
@@ -22,7 +24,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import static com.sfx.shadowstep.SteppConstants.*;
 
-public class SteppFragTrip extends Fragment implements BackStepp{
+public class SteppFragTrip extends SteppFrag implements BackStepp{
 
 	BackStepp parent;
 	SteppDB sdb;
@@ -37,6 +39,7 @@ public class SteppFragTrip extends Fragment implements BackStepp{
 	protected int selectedListItemRow;
 	private Cursor c;
 	protected int selectedListItemID;
+	ViewGroup mContainer;// could be important
 	
 //	public SteppFragTrip(BackStepp backSteppParent) {
 //		parent = backSteppParent;
@@ -61,6 +64,7 @@ public class SteppFragTrip extends Fragment implements BackStepp{
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		View rootView = inflater.inflate(R.layout.fragment_stepp_trip,container,false);
+		mContainer = container;
 		return rootView;
 	}
 	
@@ -93,7 +97,8 @@ public class SteppFragTrip extends Fragment implements BackStepp{
 				// TODO Button_new 
 				//create new SteppTrip object with name Entered, ID will be assigned by sqlite
 				//display newTripFragment to collect info on locations.
-				
+				ArrayList<Fragment> fraggs = getFragmentArray();
+				switchFrags(fraggs.get(1));
 				
 			}});
 		button_load.setOnClickListener(new OnClickListener() {
@@ -128,7 +133,7 @@ public class SteppFragTrip extends Fragment implements BackStepp{
 			@Override
 			public void afterTextChanged(Editable arg0) {
 				if(arg0.length()>0) button_new.setClickable(true);
-				button_new.setClickable(false);
+				else{button_new.setClickable(false);}
 			}
 
 			@Override
@@ -142,7 +147,7 @@ public class SteppFragTrip extends Fragment implements BackStepp{
 			public void onTextChanged(CharSequence s, int start, int before,
 					int count) {
 				if(count>0) button_new.setClickable(true);
-				button_new.setClickable(false);
+				else{button_new.setClickable(false);}
 			}});
 		
 		
@@ -161,45 +166,58 @@ public class SteppFragTrip extends Fragment implements BackStepp{
 	//¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 	//¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤	   »[[BACKSTEPP METHODS]]«
 	//¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-	@Override
-	public Activity findTopActivity() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public Activity findTopActivity() {
+//		return parent.findTopActivity();
+//	}
 
-	@Override
-	public SteppDB findTopDBHelper() {
-		return parent.findTopDBHelper();
+//	@Override
+//	public SteppDB findTopDBHelper() {
+//		return parent.findTopDBHelper();
+//
+//	}
+//
+//	@Override
+//	public String dialogGetString(String title, String question, String hintText) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public double dialogGetDouble(String title, String question, String hintText) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//	@Override
+//	public boolean recurSave(SteppDB steppdb) {
+//		// TODO Auto-generated method stub
+//		return false;
+//	}
+//
+//	@Override
+//	public long getBackID(int levels) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//	@Override
+//	public BackStepp getBackRef(int levels) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
-	}
 
-	@Override
-	public String dialogGetString(String title, String question, String hintText) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public void switchFrags() {
+//		// TODO Auto-generated method stub
+//		
+//	}
 
-	@Override
-	public double dialogGetDouble(String title, String question, String hintText) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
-	@Override
-	public boolean recurSave(SteppDB steppdb) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public long getBackID(int levels) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public BackStepp getBackRef(int levels) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public SteppFragmentManager getSteppFragmentManager() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 }

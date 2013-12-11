@@ -5,10 +5,64 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/newtrip_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Large Text"
+        android:text="@string/newtrip_title"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/label_newtrip_startloc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/newtrip_choose_loc_start" />
+
+    <Spinner
+        android:id="@+id/spinner_newtrip_startloc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_newtrip_newstart"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_weight="4"
+            android:text="@string/button_new_loc_start" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/label_newtrip_endloc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/newtrip_choose_loc_end" />
+
+    <Spinner
+        android:id="@+id/spinner_newtrip_endloc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/button_newtrip_newend"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:text="@string/button_new_loc_end" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_newtrip_locdone" />
 
 </LinearLayout>

@@ -45,6 +45,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -73,6 +74,8 @@ public class ShadowStepp extends FragmentActivity implements BackStepp{
 	FragmentTransaction fragTrans;
 	Fragment tripFrag;
 	ShadowTimer timer = new ShadowTimer();
+	Fragment flippy;
+	ArrayList<Fragment> fragStack;
 	
 	
 
@@ -123,13 +126,37 @@ public class ShadowStepp extends FragmentActivity implements BackStepp{
 		// TODO Auto-generated method stub
 		return null;
 	}
-/////////////////////////////////////////////////////////////////end backstepp/////////////////////////////////////////////////
+
+	@Override
+	public ArrayList<Fragment> getFragmentArray() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void switchFrags(Fragment f) {
+		 flippy = new ControlFragment();
+//		FrameLayout hitme = (FrameLayout)findViewById(R.id.fragment_container);
+//		fragMan.findFragmentById(R.id.controller_frag);
+		fragTrans =fragMan.beginTransaction();
+//		fragTrans.remove(tripFrag);
+		fragTrans.replace(R.id.fragment_container, flippy, "flipTag");
+		fragTrans.addToBackStack(null);
+		fragTrans.commit();
+//		findViewById(R.id.fragment_container)
+	}
+	
+
+	/////////////////////////////////////////////////////////////////end backstepp/////////////////////////////////////////////////
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
         setContentView(R.layout.shadow_stepp);		//activity_shadow_stepp
         //initialize db if not already
+        fragStack.add(new SplashFrag());
+        fragStack.add(new SteppFragTrip());
+        fragStack.add(new ControlFragment());
         masterDB = new SteppDB(this);
         masterDB.openWritable();
         fragMan = getSupportFragmentManager();
@@ -137,10 +164,11 @@ public class ShadowStepp extends FragmentActivity implements BackStepp{
 //        gMap = (GoogleMap) tempMF.getMap();
 //       mapFrag = (Fragment) fragMan.findFragmentById(R.id.mapp);
 //       controlF = (Fragment) fragMan.findFragmentById(R.id.controlFrag);
-       tripFrag = (Fragment) getSupportFragmentManager().findFragmentById(R.id.tripFrag);
+       Fragment fert = new SteppFragTrip();
+//       tripFrag = (Fragment) fragMan.findFragmentById(R.id.fraggy_steppy_trippy);
        
        fragTrans = fragMan.beginTransaction();
-//       fragTrans.add(R.layout.activity_shadow_stepp, fragMan.findFragmentById(R.id.tripFrag), "tripFragTag");
+       fragTrans.add(R.id.fragment_container, fert, "tripFragTag");
        
        fragTrans.commit();
        
@@ -444,101 +472,101 @@ public class ShadowStepp extends FragmentActivity implements BackStepp{
 //	//<<<<<<<<<<<<<<<<<<<(((((((((([[[[[[[[[[{{{{{{{{{{Fragment definintions, etc}}}}}}}}}}]]]]]]]]]]))))))))))>>>>>>>>>>>>>>>>>>>
 //	//<<<<<<<<<<<<<<<<<<<(((((((((([[[[[[[[[[{{{{{{{{{{Fragment definintions, etc}}}}}}}}}}]]]]]]]]]]))))))))))>>>>>>>>>>>>>>>>>>>
 //	//TASK does this show up
-	public static class ControlFragment extends Fragment{
-
-		Button buttonStart;
-		Button buttonStop;
-		Button buttonCenter;
-		TextView tvStart;
-		TextView tvCenter;
-		TextView tvStop;
-		ShadowTimer sTime;
-		boolean paused = false;
-		boolean timing = false;
-		public void onResume(){
-			super.onResume();
-			
-		}
-		
-		public static ControlFragment newInstance(int index){
-			ControlFragment f = new ControlFragment();
-			 Bundle args = new Bundle();
-	         args.putInt("index", index);
-	         f.setArguments(args);
-	         return f;
-		}
-		
-		
-		public View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-			if(container == null) return null;		//just in case...
-			
-			View rootView = inflater.inflate(R.layout.fragment_control,container,false);
-			buttonStart = (Button) getActivity().findViewById(R.id.button_Start);
-			buttonStop = (Button) getActivity().findViewById(R.id.button_stop);
-			buttonCenter = (Button) getActivity().findViewById(R.id.button_center);
-			tvStart = (TextView) getActivity().findViewById(R.id.tv_startTime);
-			tvStop = (TextView) getActivity().findViewById(R.id.tv_stopTime);
-			tvCenter = (TextView) getActivity().findViewById(R.id.tv_counter);
-			sTime = new ShadowTimer();
-			sTime.setTextView(tvCenter);
-			
-			buttonStart.setOnClickListener(new OnClickListener(){
-				@Override
-				public void onClick(View v) {
-					if(!timing){
-						timing = true;
-						sTime.startTiming();
-					}else{
-						if(paused){//if paused, restart
-							sTime.unPause();
-							buttonCenter.setText(R.string.pause);
-							paused = false;
-						}
-						//if start pressed while already timing??
-					}
-				}//onclick
-			});//buttonstart.setonclicklistener
-			
-			buttonStop.setOnClickListener(new OnClickListener(){
-				@Override
-				public void onClick(View v) {
-					if(timing){
-						if(paused){
-							sTime.unPause();
-							buttonCenter.setText(R.string.pause);
-							paused = false;
-						}
-						sTime.stopTiming();	
-						timing = false;
-					}else{
-						
-						//if stop pressed when not timing???
-					}
-				}//onclick
-			});//buttonstop.set...
-			
-			buttonCenter.setOnClickListener(new OnClickListener(){
-				@Override
-				public void onClick(View v) {
-					if (paused){
-						sTime.unPause();
-						buttonCenter.setText(R.string.pause);
-						paused = false;
-					}else{
-						sTime.pause();
-						buttonCenter.setText(R.string.button_continue);
-						paused = true;					
-					}//ifelse
-					
-				}//onclick
-			});//centerbutton
-			
-			
-			return rootView;
-	       	
-		}
-
-	}//controlfragment
-	
-	
+//	public static class ControlFragment extends Fragment{
+//
+//		Button buttonStart;
+//		Button buttonStop;
+//		Button buttonCenter;
+//		TextView tvStart;
+//		TextView tvCenter;
+//		TextView tvStop;
+//		ShadowTimer sTime;
+//		boolean paused = false;
+//		boolean timing = false;
+//		public void onResume(){
+//			super.onResume();
+//			
+//		}
+//		
+//		public static ControlFragment newInstance(int index){
+//			ControlFragment f = new ControlFragment();
+//			 Bundle args = new Bundle();
+//	         args.putInt("index", index);
+//	         f.setArguments(args);
+//	         return f;
+//		}
+//		
+//		
+//		public View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//			if(container == null) return null;		//just in case...
+//			
+//			View rootView = inflater.inflate(R.layout.fragment_control,container,false);
+//			buttonStart = (Button) getActivity().findViewById(R.id.button_Start);
+//			buttonStop = (Button) getActivity().findViewById(R.id.button_stop);
+//			buttonCenter = (Button) getActivity().findViewById(R.id.button_center);
+//			tvStart = (TextView) getActivity().findViewById(R.id.tv_startTime);
+//			tvStop = (TextView) getActivity().findViewById(R.id.tv_stopTime);
+//			tvCenter = (TextView) getActivity().findViewById(R.id.tv_counter);
+//			sTime = new ShadowTimer();
+//			sTime.setTextView(tvCenter);
+//			
+//			buttonStart.setOnClickListener(new OnClickListener(){
+//				@Override
+//				public void onClick(View v) {
+//					if(!timing){
+//						timing = true;
+//						sTime.startTiming();
+//					}else{
+//						if(paused){//if paused, restart
+//							sTime.unPause();
+//							buttonCenter.setText(R.string.pause);
+//							paused = false;
+//						}
+//						//if start pressed while already timing??
+//					}
+//				}//onclick
+//			});//buttonstart.setonclicklistener
+//			
+//			buttonStop.setOnClickListener(new OnClickListener(){
+//				@Override
+//				public void onClick(View v) {
+//					if(timing){
+//						if(paused){
+//							sTime.unPause();
+//							buttonCenter.setText(R.string.pause);
+//							paused = false;
+//						}
+//						sTime.stopTiming();	
+//						timing = false;
+//					}else{
+//						
+//						//if stop pressed when not timing???
+//					}
+//				}//onclick
+//			});//buttonstop.set...
+//			
+//			buttonCenter.setOnClickListener(new OnClickListener(){
+//				@Override
+//				public void onClick(View v) {
+//					if (paused){
+//						sTime.unPause();
+//						buttonCenter.setText(R.string.pause);
+//						paused = false;
+//					}else{
+//						sTime.pause();
+//						buttonCenter.setText(R.string.button_continue);
+//						paused = true;					
+//					}//ifelse
+//					
+//				}//onclick
+//			});//centerbutton
+//			
+//			
+//			return rootView;
+//	       	
+//		}
+//
+//	}//controlfragment
+//	
+//	
 }//ShadowStepp class entire

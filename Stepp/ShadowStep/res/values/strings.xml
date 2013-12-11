@@ -15,5 +15,12 @@
     <string name="trip_frag_label_new_trip">Or Create a New Trip</string>
     <string name="trip_frag_loadtrip">Load Trip</string>
     <string name="trip_frag_newtrip">Create New Trip</string>
+    <string name="newtrip_title">Create a new SteppTrip</string>
+    <string name="newtrip_choose_loc_start">Choose Starting Location</string>
+    <string name="newtrip_choose_loc_end">Choose Ending Location</string>
+    <string name="button_new_loc_start">New Start Location</string>
+    <string name="button_new_loc_end">New End Location</string>
+    <string name="button_loc_here">My Current Location</string>
+    <string name="button_newtrip_locdone">Onward to Routes</string>
 
 </resources>

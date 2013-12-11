@@ -24,28 +24,36 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int SFT_button_loadTrip=0x7f09000c;
-        public static final int SFT_button_newTrip=0x7f09000e;
-        public static final int SFT_editText_newTripName=0x7f09000d;
-        public static final int SFT_spinner_triplist=0x7f090009;
-        public static final int SFT_textView_label_new_trip=0x7f09000b;
-        public static final int SFT_textView_spinner=0x7f09000a;
-        public static final int SFT_textView_title=0x7f090008;
-        public static final int action_settings=0x7f090015;
-        public static final int button_Start=0x7f090004;
-        public static final int button_center=0x7f090005;
-        public static final int button_stop=0x7f090006;
-        public static final int list_info1=0x7f090012;
-        public static final int list_info2=0x7f090013;
-        public static final int list_info3=0x7f090014;
-        public static final int list_title=0x7f090011;
+        public static final int SFT_button_loadTrip=0x7f090014;
+        public static final int SFT_button_newTrip=0x7f090016;
+        public static final int SFT_editText_newTripName=0x7f090015;
+        public static final int SFT_spinner_triplist=0x7f090011;
+        public static final int SFT_textView_label_new_trip=0x7f090013;
+        public static final int SFT_textView_spinner=0x7f090012;
+        public static final int SFT_textView_title=0x7f090010;
+        public static final int action_settings=0x7f09001d;
+        public static final int button1=0x7f09000f;
+        public static final int button_Start=0x7f090005;
+        public static final int button_center=0x7f090006;
+        public static final int button_newtrip_newend=0x7f09000e;
+        public static final int button_newtrip_newstart=0x7f09000b;
+        public static final int button_stop=0x7f090007;
+        public static final int controller_frag=0x7f090001;
+        public static final int fragment_container=0x7f090018;
+        public static final int label_newtrip_endloc=0x7f09000c;
+        public static final int label_newtrip_startloc=0x7f090009;
+        public static final int list_info1=0x7f09001a;
+        public static final int list_info2=0x7f09001b;
+        public static final int list_info3=0x7f09001c;
+        public static final int list_title=0x7f090019;
         public static final int map=0x7f090000;
-        public static final int mapp=0x7f090010;
-        public static final int textView1=0x7f090007;
-        public static final int tripFrag=0x7f09000f;
-        public static final int tv_counter=0x7f090002;
-        public static final int tv_startTime=0x7f090001;
-        public static final int tv_stopTime=0x7f090003;
+        public static final int newtrip_title=0x7f090008;
+        public static final int spinner_newtrip_endloc=0x7f09000d;
+        public static final int spinner_newtrip_startloc=0x7f09000a;
+        public static final int tripFrag=0x7f090017;
+        public static final int tv_counter=0x7f090003;
+        public static final int tv_startTime=0x7f090002;
+        public static final int tv_stopTime=0x7f090004;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f070000;
@@ -55,9 +63,10 @@ public final class R {
         public static final int fragment_control=0x7f030001;
         public static final int fragment_new_trip_entry=0x7f030002;
         public static final int fragment_stepp_trip=0x7f030003;
-        public static final int map_this=0x7f030004;
-        public static final int shadow_stepp=0x7f030005;
-        public static final int stepp_list_item_layout=0x7f030006;
+        public static final int fragment_trip_select=0x7f030004;
+        public static final int map_this=0x7f030005;
+        public static final int shadow_stepp=0x7f030006;
+        public static final int stepp_list_item_layout=0x7f030007;
     }
     public static final class menu {
         public static final int shadow_stepp=0x7f080000;
@@ -67,7 +76,14 @@ public final class R {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
         public static final int button_continue=0x7f050008;
+        public static final int button_loc_here=0x7f050013;
+        public static final int button_new_loc_end=0x7f050012;
+        public static final int button_new_loc_start=0x7f050011;
+        public static final int button_newtrip_locdone=0x7f050014;
         public static final int hello_world=0x7f050002;
+        public static final int newtrip_choose_loc_end=0x7f050010;
+        public static final int newtrip_choose_loc_start=0x7f05000f;
+        public static final int newtrip_title=0x7f05000e;
         public static final int pause=0x7f050007;
         public static final int start=0x7f050005;
         public static final int stop=0x7f050006;

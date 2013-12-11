@@ -3,7 +3,10 @@
  */
 package com.sfx.shadowstep;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
+import android.support.v4.app.Fragment;
 import static com.sfx.shadowstep.SteppConstants.*;
 
 /**
@@ -109,4 +112,14 @@ public interface BackStepp {
 	 * @return returns a reference to the object.
 	 */
 	public BackStepp getBackRef(int levels);
+	
+	//need a good way to call for display changes, but what can I send back
+	//or should I pull down a reference to the fragManager?
+	//or static class I can make calls to in order to switch... but how to pass back into activity
+	void switchFrags(Fragment f);
+	
+	//passes up to activity and returns a reference to the current SteppFragmentManager
+	public ArrayList<Fragment> getFragmentArray();
+
+	
 }

@@ -10,6 +10,7 @@ import java.util.Date;
 
 import android.app.Activity;
 //import android.text.format.DateFormat;
+import android.support.v4.app.Fragment;
 
 /**
  * @author David
@@ -156,6 +157,22 @@ public class SteppTrip implements BackStepp {
 
 		@Override
 		public BackStepp getBackRef(int levels) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+
+		@Override
+		public void switchFrags(Fragment f) {
+			// TODO Auto-generated method stub
+			
+		}
+
+
+
+		@Override
+		public ArrayList<Fragment> getFragmentArray() {
 			// TODO Auto-generated method stub
 			return null;
 		}

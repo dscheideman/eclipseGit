@@ -15,7 +15,7 @@ import android.widget.*;
  * @author David
  *
  */
-public class ControlFragment extends Fragment {
+public class ControlFragment extends SteppFrag {
 
 	Button buttonStart;
 	Button buttonStop;

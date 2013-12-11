@@ -3,7 +3,10 @@
  */
 package com.sfx.shadowstep;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
+import android.support.v4.app.Fragment;
 
 /**
  * @author David
@@ -73,6 +76,18 @@ public class SteppLocation implements BackStepp {
 
 	@Override
 	public BackStepp getBackRef(int levels) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void switchFrags(Fragment f) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ArrayList<Fragment> getFragmentArray() {
 		// TODO Auto-generated method stub
 		return null;
 	}
