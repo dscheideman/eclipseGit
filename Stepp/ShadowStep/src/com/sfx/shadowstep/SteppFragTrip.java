@@ -69,7 +69,8 @@ public class SteppFragTrip extends SteppFrag implements BackStepp{
 	}
 	
 	public void onResume(){
-		super.onResume();
+		new Fragment().onResume();//TODO this Resume method may break if I cannot call super.onResume()
+		super.proxyOnResume();
 		//build layout associations
 		steppActivity = findTopActivity();
 		editText_NewName = (EditText) getActivity().findViewById(R.id.SFT_editText_newTripName);
@@ -98,7 +99,7 @@ public class SteppFragTrip extends SteppFrag implements BackStepp{
 				//create new SteppTrip object with name Entered, ID will be assigned by sqlite
 				//display newTripFragment to collect info on locations.
 				ArrayList<Fragment> fraggs = getFragmentArray();
-				switchFrags(fraggs.get(1));
+				switchFrags(F_TAG_CONTROL);
 				
 			}});
 		button_load.setOnClickListener(new OnClickListener() {
@@ -162,6 +163,27 @@ public class SteppFragTrip extends SteppFrag implements BackStepp{
 //				mColorSaver.SaveColor(yankedColor, nameValue, noteValue);
 //			}});//end saveButton onClickListener
 		}//onResume
+
+
+	@Override
+	public void onStart() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void onPause() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void onStop() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	//¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 	//¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤	   »[[BACKSTEPP METHODS]]«

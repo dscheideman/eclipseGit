@@ -269,8 +269,8 @@ public double dialogGetDouble(String title, String question, String hintText) {
 
 
 @Override
-public void switchFrags(Fragment f) {
-	// TODO Auto-generated method stub
+public Fragment switchFrags(String tag) {
+	return null;
 	
 }
 

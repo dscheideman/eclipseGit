@@ -60,7 +60,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/button_splash_new_run"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_newtrip_locdone" />

@@ -27,7 +27,7 @@ public class ControlFragment extends SteppFrag {
 	boolean paused = false;
 	boolean timing = false;
 	public void onResume(){
-		super.onResume();
+		super.proxyOnResume();
 		
 	}
 	
@@ -110,6 +110,31 @@ public class ControlFragment extends SteppFrag {
 		
 		return rootView;
        	
+	}
+
+	@Override
+	public void onStart() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onPause() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onStop() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Fragment switchFrags(String tag) {
+		// TODO Auto-generated method stub
+		return parent.switchFrags(tag);
+		
 	}
 
 }

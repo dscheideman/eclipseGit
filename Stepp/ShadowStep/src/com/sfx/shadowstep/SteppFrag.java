@@ -6,7 +6,10 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.database.Cursor;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,6 +48,20 @@ public abstract class SteppFrag extends Fragment implements BackStepp {
 					+ " must implement BackStepp Interface");
 		}//try,catch,exception BackStepp Interface
 	}
+	//required methods for lifecycle of fragment
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+	return super.onCreateView(inflater, container, savedInstanceState);
+	}
+	@Override
+	public abstract void onStart();
+	@Override
+	public abstract void onResume();
+	@Override
+	public abstract void onPause();
+	@Override
+	public abstract void onStop();
+	
+	
 	
 	public SteppFrag() {
 		// TODO Auto-generated constructor stub
@@ -93,8 +110,8 @@ public abstract class SteppFrag extends Fragment implements BackStepp {
 	}
 
 	@Override
-	public void switchFrags(Fragment f) {
-		// TODO Auto-generated method stub
+	public Fragment switchFrags(String tag) {
+		return parent.switchFrags(tag);
 
 	}
 
@@ -102,5 +119,11 @@ public abstract class SteppFrag extends Fragment implements BackStepp {
 	public ArrayList<Fragment> getFragmentArray() {
 		return parent.getFragmentArray();
 	}
+	
+	public void proxyOnResume() {
+		super.onResume();
+		
+	}
+	
 
 }

@@ -22,5 +22,8 @@
     <string name="button_new_loc_end">New End Location</string>
     <string name="button_loc_here">My Current Location</string>
     <string name="button_newtrip_locdone">Onward to Routes</string>
+    <string name="splash_title">Welcome to ShadowStepp</string>
+    <string name="splash_button_new_run">NEW RUN</string>
+    <string name="splash_button_quickrun">QUICKRUN</string>
 
 </resources>

@@ -32,6 +32,7 @@ public class SteppRun implements BackStepp {
 	public BackStepp 	mParent;
 	public SteppDB 		db;
 	public ArrayList<SteppPoint>	pointList;//?drop ArrayList and stick with LinkedList?
+	private SteppRun parent;
 	
 //	public int waypointCount;//?
 	
@@ -238,8 +239,8 @@ public class SteppRun implements BackStepp {
 	//いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい
 
 	@Override
-	public void switchFrags(Fragment f) {
-		// TODO Auto-generated method stub
+	public Fragment switchFrags(String tag) {
+		return parent.switchFrags(tag);
 		
 	}
 

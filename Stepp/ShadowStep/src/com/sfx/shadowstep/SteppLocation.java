@@ -20,6 +20,7 @@ public class SteppLocation implements BackStepp {
 	public String locLat;
 	public String locLon;
 	public String mCreationTime;
+	public BackStepp parent;
 
 	/* (non-Javadoc)
 	 * @see com.sfx.shadowstep.BackStepp#findTopActivity()
@@ -81,8 +82,8 @@ public class SteppLocation implements BackStepp {
 	}
 
 	@Override
-	public void switchFrags(Fragment f) {
-		// TODO Auto-generated method stub
+	public Fragment switchFrags(String tag) {
+		return parent.switchFrags(tag);
 		
 	}
 

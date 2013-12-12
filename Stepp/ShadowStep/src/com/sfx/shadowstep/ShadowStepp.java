@@ -57,6 +57,7 @@ import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import static com.sfx.shadowstep.SteppConstants.*;
 
 //import com.sfx.shadowutility.ShadowTimer;
 
@@ -134,16 +135,12 @@ public class ShadowStepp extends FragmentActivity implements BackStepp{
 	}
 
 	@Override
-	public void switchFrags(Fragment f) {
-		 flippy = new ControlFragment();
-//		FrameLayout hitme = (FrameLayout)findViewById(R.id.fragment_container);
-//		fragMan.findFragmentById(R.id.controller_frag);
+	public Fragment switchFrags(String tag) {
 		fragTrans =fragMan.beginTransaction();
-//		fragTrans.remove(tripFrag);
-		fragTrans.replace(R.id.fragment_container, flippy, "flipTag");
+		fragTrans.replace(R.id.fragment_container, fragMan.findFragmentByTag(tag));
 		fragTrans.addToBackStack(null);
 		fragTrans.commit();
-//		findViewById(R.id.fragment_container)
+		return fragMan.findFragmentByTag(tag);
 	}
 	
 
@@ -154,23 +151,30 @@ public class ShadowStepp extends FragmentActivity implements BackStepp{
         GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
         setContentView(R.layout.shadow_stepp);		//activity_shadow_stepp
         //initialize db if not already
-        fragStack.add(new SplashFrag());
-        fragStack.add(new SteppFragTrip());
-        fragStack.add(new ControlFragment());
         masterDB = new SteppDB(this);
         masterDB.openWritable();
+        //setup fragments to switch between
         fragMan = getSupportFragmentManager();
+        FragmentTransaction ft = fragMan.beginTransaction();
+        ft.add(R.id.fragment_container, new SplashFrag(), F_TAG_SPLASH);
+        ft.add(R.id.fragment_container, new SteppFragTrip(), F_TAG_SEL_TRIP);
+        ft.add(R.id.fragment_container, new ControlFragment(), F_TAG_CONTROL);
+       //TODO add complete range of fragment types
+       ft.commit();
+       ft = fragMan.beginTransaction();
+       ft.replace(R.id.fragment_container, new SplashFrag(), F_TAG_SPLASH);
+       ft.commit();
 //       MapFragment tempMF = (MapFragment)getFragmentManager().findFragmentById(R.id.mapp);
 //        gMap = (GoogleMap) tempMF.getMap();
 //       mapFrag = (Fragment) fragMan.findFragmentById(R.id.mapp);
-//       controlF = (Fragment) fragMan.findFragmentById(R.id.controlFrag);
-       Fragment fert = new SteppFragTrip();
+////       controlF = (Fragment) fragMan.findFragmentById(R.id.controlFrag);
+//       Fragment fert = new SteppFragTrip();
 //       tripFrag = (Fragment) fragMan.findFragmentById(R.id.fraggy_steppy_trippy);
        
-       fragTrans = fragMan.beginTransaction();
-       fragTrans.add(R.id.fragment_container, fert, "tripFragTag");
-       
-       fragTrans.commit();
+//       fragTrans = fragMan.beginTransaction();
+//       fragTrans.add(R.id.fragment_container, fragMan.findFragmentByTag(F_TAG_SPLASH));
+//       
+//       fragTrans.commit();
        
        /* Use the LocationManager class to obtain GPS locations */
 

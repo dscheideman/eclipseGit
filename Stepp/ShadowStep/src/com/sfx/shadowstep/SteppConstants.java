@@ -41,7 +41,21 @@ public final class SteppConstants {
 	public static final String		DO_NOT_SAVE			=	"This Object is not intended for permanent storage";
 	public static final int[]		STEPP_SCA_TO_ARGUMENT = {};
 	
+	//FragmentTags
 	
+	public static final String		F_TAG_SPLASH		=	"SPLASHFRAG";
+	public static final String		F_TAG_MAP			=	"MAPFRAG";
+	public static final String		F_TAG_CONTROL		=	"CONTROLFRAG";
+	public static final String		F_TAG_SEL_TRIP		=	"SELECTTRIPFRAG";
+	public static final String		F_TAG_NEW_TRIP		=	"NEWTRIPFRAG";
+	public static final String		F_TAG_EDIT_TRIP		=	"EDITTRIPFRAG";
+	public static final String		F_TAG_SEL_LOC		=	"SELECTLOCFRAG";
+	public static final String		F_TAG_NEW_LOC		=	"NEWLOCFRAG";
+	public static final String		F_TAG_EDIT_LOC		=	"EDITLOCFRAG";
+	public static final String		F_TAG_SEL_ROUTE		=	"SELECTROUTEFRAG";
+	public static final String		F_TAG_NEW_ROUTE		=	"NEWROUTEFRAG";
+	public static final String		F_TAG_EDIT_ROUTE	=	"EDITROUTEFRAG";
+	public static final String		F_TAG_EDIT_RUN		=	"EDITRUNFRAG";
 	
 	public SteppConstants(){
 //		throw new AssertionError();	//prevents native instantiation

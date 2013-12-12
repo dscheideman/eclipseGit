@@ -31,6 +31,7 @@ public class SteppTrip implements BackStepp {
 	BackStepp				steppParent; //should be the top activity for a SteppTrip object
 	int						avgTripTime;
 	int						numberOfRoutes;
+	private SteppTrip parent;
 	
 	
 	
@@ -164,8 +165,8 @@ public class SteppTrip implements BackStepp {
 
 
 		@Override
-		public void switchFrags(Fragment f) {
-			// TODO Auto-generated method stub
+		public Fragment switchFrags(String tag) {
+			return parent.switchFrags(tag);
 			
 		}
 

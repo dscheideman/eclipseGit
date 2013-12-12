@@ -21,6 +21,7 @@ public class SteppRoute implements BackStepp {
 	public int mTripID;
 	public String mRouteName;
 	public long mCreationTime;
+	private SteppRoute parent;
 
 	
 	
@@ -82,8 +83,8 @@ public class SteppRoute implements BackStepp {
 		}
 
 		@Override
-		public void switchFrags(Fragment f) {
-			// TODO Auto-generated method stub
+		public Fragment switchFrags(String tag) {
+			return parent.switchFrags(tag);
 			
 		}
 
