@@ -135,12 +135,21 @@ public class ShadowStepp extends FragmentActivity implements BackStepp{
 	}
 
 	@Override
-	public Fragment switchFrags(String tag) {
+	public Fragment switchFrags(Fragment fragment, String tag) {
+		//verify fragment tag exists?
+		if (fragment == null) {
+			if (fragMan.findFragmentByTag(tag) != null){
+			fragment = fragMan.findFragmentByTag(tag);
+			}
+		}
+		if (fragment != null){
 		fragTrans =fragMan.beginTransaction();
-		fragTrans.replace(R.id.fragment_container, fragMan.findFragmentByTag(tag));
+		fragTrans.replace(R.id.fragment_container, fragment);
 		fragTrans.addToBackStack(null);
 		fragTrans.commit();
-		return fragMan.findFragmentByTag(tag);
+		return fragment;
+		}
+		return null;
 	}
 	
 
@@ -156,12 +165,12 @@ public class ShadowStepp extends FragmentActivity implements BackStepp{
         //setup fragments to switch between
         fragMan = getSupportFragmentManager();
         FragmentTransaction ft = fragMan.beginTransaction();
-        ft.add(R.id.fragment_container, new SplashFrag(), F_TAG_SPLASH);
+//        ft.add(R.id.fragment_container, new SplashFrag(), F_TAG_SPLASH);
         ft.add(R.id.fragment_container, new SteppFragTrip(), F_TAG_SEL_TRIP);
-        ft.add(R.id.fragment_container, new ControlFragment(), F_TAG_CONTROL);
-       //TODO add complete range of fragment types
-       ft.commit();
-       ft = fragMan.beginTransaction();
+//        ft.add(R.id.fragment_container, new ControlFragment(), F_TAG_CONTROL);
+//       //TODO add complete range of fragment types
+//       ft.commit();
+//       ft = fragMan.beginTransaction();
        ft.replace(R.id.fragment_container, new SplashFrag(), F_TAG_SPLASH);
        ft.commit();
 //       MapFragment tempMF = (MapFragment)getFragmentManager().findFragmentById(R.id.mapp);

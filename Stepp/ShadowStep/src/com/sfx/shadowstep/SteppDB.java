@@ -269,7 +269,7 @@ public double dialogGetDouble(String title, String question, String hintText) {
 
 
 @Override
-public Fragment switchFrags(String tag) {
+public Fragment switchFrags(Fragment fragment, String tag) {
 	return null;
 	
 }

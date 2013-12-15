@@ -165,10 +165,9 @@ public class SteppTrip implements BackStepp {
 
 
 		@Override
-		public Fragment switchFrags(String tag) {
-			return parent.switchFrags(tag);
-			
-		}
+		public Fragment switchFrags(Fragment fragment, String tag) {
+			return parent.switchFrags(fragment, tag);
+			}
 
 
 

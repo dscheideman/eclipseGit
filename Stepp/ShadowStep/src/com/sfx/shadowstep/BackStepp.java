@@ -116,7 +116,8 @@ public interface BackStepp {
 	//need a good way to call for display changes, but what can I send back
 	//or should I pull down a reference to the fragManager?
 	//or static class I can make calls to in order to switch... but how to pass back into activity
-	Fragment switchFrags(String tag);
+	//if fragment is null, just attempt to find by tag, otherwise replace with passed fragment and assign tag
+	Fragment switchFrags(Fragment fragment, String tag);
 	
 	//passes up to activity and returns a reference to the current SteppFragmentManager
 	public ArrayList<Fragment> getFragmentArray();

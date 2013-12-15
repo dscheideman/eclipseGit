@@ -70,7 +70,7 @@ public class SteppFragTrip extends SteppFrag implements BackStepp{
 	
 	public void onResume(){
 		new Fragment().onResume();//TODO this Resume method may break if I cannot call super.onResume()
-		super.proxyOnResume();
+		super.onResume();
 		//build layout associations
 		steppActivity = findTopActivity();
 		editText_NewName = (EditText) getActivity().findViewById(R.id.SFT_editText_newTripName);
@@ -99,7 +99,8 @@ public class SteppFragTrip extends SteppFrag implements BackStepp{
 				//create new SteppTrip object with name Entered, ID will be assigned by sqlite
 				//display newTripFragment to collect info on locations.
 				ArrayList<Fragment> fraggs = getFragmentArray();
-				switchFrags(F_TAG_CONTROL);
+				if(switchFrags(null, F_TAG_CONTROL) == null)
+					switchFrags(new ControlFragment(), F_TAG_CONTROL);
 				
 			}});
 		button_load.setOnClickListener(new OnClickListener() {
@@ -165,23 +166,28 @@ public class SteppFragTrip extends SteppFrag implements BackStepp{
 		}//onResume
 
 
+//	public Fragment switchFrags(Fragment fragment, String tag) {
+//		return parent.switchFrags(fragment, tag);
+//		
+//	}
+
+
 	@Override
 	public void onStart() {
-		// TODO Auto-generated method stub
+		super.onStart();
 		
 	}
 
 
 	@Override
 	public void onPause() {
-		// TODO Auto-generated method stub
-		
+		super.onPause();
 	}
 
 
 	@Override
 	public void onStop() {
-		// TODO Auto-generated method stub
+		super.onStop();
 		
 	}
 	

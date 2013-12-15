@@ -52,14 +52,14 @@ public abstract class SteppFrag extends Fragment implements BackStepp {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 	return super.onCreateView(inflater, container, savedInstanceState);
 	}
-	@Override
-	public abstract void onStart();
-	@Override
-	public abstract void onResume();
-	@Override
-	public abstract void onPause();
-	@Override
-	public abstract void onStop();
+//	@Override
+//	public abstract void onStart();
+//	@Override
+//	public abstract void onResume();
+//	@Override
+//	public abstract void onPause();
+//	@Override
+//	public abstract void onStop();
 	
 	
 	
@@ -110,9 +110,8 @@ public abstract class SteppFrag extends Fragment implements BackStepp {
 	}
 
 	@Override
-	public Fragment switchFrags(String tag) {
-		return parent.switchFrags(tag);
-
+	public Fragment switchFrags(Fragment fragment, String tag) {
+		return parent.switchFrags(fragment, tag);
 	}
 
 	@Override
@@ -120,10 +119,10 @@ public abstract class SteppFrag extends Fragment implements BackStepp {
 		return parent.getFragmentArray();
 	}
 	
-	public void proxyOnResume() {
-		super.onResume();
-		
-	}
+//	public void proxyOnResume() {
+//		super.onResume();
+//		
+//	}
 	
 
 }

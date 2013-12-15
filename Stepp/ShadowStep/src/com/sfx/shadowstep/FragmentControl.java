@@ -27,18 +27,19 @@ public class ControlFragment extends SteppFrag {
 	boolean paused = false;
 	boolean timing = false;
 	public void onResume(){
-		super.proxyOnResume();
+		super.onResume();
 		
 	}
 	
-	public static ControlFragment newInstance(int index){
-		ControlFragment f = new ControlFragment();
-		 Bundle args = new Bundle();
-         args.putInt("index", index);
-         f.setArguments(args);
-         return f;
-	}
+//	public static ControlFragment newInstance(int index){
+//		ControlFragment f = new ControlFragment();
+//		 Bundle args = new Bundle();
+//         args.putInt("index", index);
+//         f.setArguments(args);
+//         return f;
+//	}
 	
+	public ControlFragment(){}
 	
 	
 	
@@ -114,27 +115,23 @@ public class ControlFragment extends SteppFrag {
 
 	@Override
 	public void onStart() {
-		// TODO Auto-generated method stub
+		super.onStart();
 		
 	}
 
 	@Override
 	public void onPause() {
-		// TODO Auto-generated method stub
-		
+		super.onPause();
 	}
 
 	@Override
 	public void onStop() {
-		// TODO Auto-generated method stub
-		
+		super.onStop();
 	}
 
 	@Override
-	public Fragment switchFrags(String tag) {
-		// TODO Auto-generated method stub
-		return parent.switchFrags(tag);
-		
-	}
+	public Fragment switchFrags(Fragment fragment, String tag) {
+		return parent.switchFrags(fragment, tag);
+		}
 
 }
